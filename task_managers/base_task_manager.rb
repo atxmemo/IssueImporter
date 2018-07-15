@@ -4,7 +4,7 @@ class BaseTaskManager
 
   def import(options)
     @github_repo = options[:github_repo]
-    
+
     start = Time.now
 
     extract options
@@ -16,10 +16,6 @@ class BaseTaskManager
     stop = Time.now
 
     puts "Imported x number of issues and took #{(stop - start) * 1000} milli seconds"
-  end
-
-  def transform
-    puts 'transforming...'
   end
 
   def load
