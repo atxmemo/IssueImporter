@@ -8,4 +8,11 @@ class GitHubIssue
     @body = body
   end
 
+  def to_json
+    {
+        title: @title,
+        body: @body
+    }
+  end
+
 end

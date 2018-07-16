@@ -1,7 +1,12 @@
+require_relative '../connectors/git_hub_connector'
+
 class BaseTaskManager
 
   def import(options)
-    @github_repo = options[:github_repo]
+    @github_connector = GitHubConnector.new(options[:github_repo],
+                                            options[:github_user_name],
+                                            options[:github_auth_token])
+
     @github_issues = Array.new
 
     start = Time.now
@@ -18,7 +23,7 @@ class BaseTaskManager
   end
 
   def load
-    puts @github_issues.inspect
+    @github_connector.post_issues @github_issues
   end
 
 end
