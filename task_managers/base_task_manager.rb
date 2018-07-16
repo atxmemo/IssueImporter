@@ -1,9 +1,8 @@
 class BaseTaskManager
 
-  @github_repo = nil
-
   def import(options)
     @github_repo = options[:github_repo]
+    @gitub_issues = Array.new
 
     start = Time.now
 
@@ -19,7 +18,7 @@ class BaseTaskManager
   end
 
   def load
-    puts 'loading...'
+    puts @gitub_issues
   end
 
 end
