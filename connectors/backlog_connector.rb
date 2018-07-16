@@ -1,6 +1,6 @@
-require_relative 'base_connector'
+require 'httparty'
 
-class BacklogConnector < BaseConnector
+class BacklogConnector
 
   def initialize(backlog_api_key, backlog_project_key)
     @backlog_api_key = backlog_api_key
