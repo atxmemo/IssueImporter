@@ -18,7 +18,7 @@ class BaseTaskManager
   end
 
   def load
-    puts @gitub_issues
+    puts @gitub_issues.inspect
   end
 
 end
