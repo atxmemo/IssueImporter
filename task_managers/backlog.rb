@@ -5,18 +5,22 @@ require_relative '../connectors/backlog_connector'
 class Backlog < BaseTaskManager
 
   def extract(options)
-    raw_backlog_issues = BacklogConnector.new(options[:backlog_api_key], options[:backlog_project_key]).get_raw_issues
+    raw_backlog_issues = BacklogConnector.new(options[:backlog_api_key],
+                                              options[:backlog_project_key]).get_raw_issues
 
     @backlog_issues = Array.new
     raw_backlog_issues.each do |raw_backlog_issue|
-      state = if raw_backlog_issue['status']['name'] == 'Closed' then 'closed' else 'open' end
-      @backlog_issues.push BacklogIssue.new(raw_backlog_issue['summary'], raw_backlog_issue['description'], state)
+      @backlog_issues.push BacklogIssue.new(raw_backlog_issue['summary'],
+                                            raw_backlog_issue['description'],
+                                            raw_backlog_issue['status']['name'].downcase)
     end
   end
 
   def transform
     @backlog_issues.each do |backlog_issue|
-      @github_issues.push GitHubIssue.new(backlog_issue.summary, backlog_issue.description, backlog_issue.state)
+      @unsaved_github_issues.push GitHubIssue.new(backlog_issue.summary,
+                                                  backlog_issue.description,
+                                                  backlog_issue.status)
     end
   end
 

@@ -2,12 +2,12 @@ class BacklogIssue
 
   attr_accessor :summary
   attr_accessor :description
-  attr_accessor :state
+  attr_accessor :status
 
-  def initialize(summary, description, state)
+  def initialize(summary, description, status)
     @summary = summary
     @description = description
-    @state = state
+    @status = status
   end
 
 end
