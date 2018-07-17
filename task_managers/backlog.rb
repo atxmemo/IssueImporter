@@ -9,13 +9,14 @@ class Backlog < BaseTaskManager
 
     @backlog_issues = Array.new
     raw_backlog_issues.each do |raw_backlog_issue|
-      @backlog_issues.push BacklogIssue.new(raw_backlog_issue['summary'], raw_backlog_issue['description'])
+      state = if raw_backlog_issue['status']['name'] == 'Closed' then 'closed' else 'open' end
+      @backlog_issues.push BacklogIssue.new(raw_backlog_issue['summary'], raw_backlog_issue['description'], state)
     end
   end
 
   def transform
     @backlog_issues.each do |backlog_issue|
-      @github_issues.push GitHubIssue.new(backlog_issue.summary, backlog_issue.description)
+      @github_issues.push GitHubIssue.new(backlog_issue.summary, backlog_issue.description, backlog_issue.state)
     end
   end
 
