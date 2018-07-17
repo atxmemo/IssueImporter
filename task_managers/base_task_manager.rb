@@ -2,21 +2,25 @@ require_relative '../connectors/git_hub_connector'
 
 class BaseTaskManager
 
-  def import(options)
-    @github_connector = GitHubConnector.new(options[:github_repo],
-                                            options[:github_user_name],
-                                            options[:github_auth_token])
+  def initialize(github_repo, github_user_name, github_auth_token)
+    @github_connector = GitHubConnector.new(github_repo, github_user_name, github_auth_token)
+  end
 
+  def import
     # Sub classes will populate this field in their implemented #extract method
     @unsaved_github_issues = Array.new
 
     @imported_issues = 0
 
     start = Time.now
-    extract options
 
+    # Have subclass extract issues from any task manager using a dedicated connector
+    extract
+
+    # Have subclass transform issues that were extracted into GitHub issues
     transform
 
+    # Post GitHub issues into GitHub and ensure any fields that can't be set during create are updated during subsequent update
     load
 
     stop = Time.now
