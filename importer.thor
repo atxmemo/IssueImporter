@@ -1,5 +1,5 @@
-require_relative 'task_managers/base_task_manager'
-require_relative 'task_managers/backlog'
+require_relative 'src/task_managers/base_task_manager'
+require_relative 'src/task_managers/backlog'
 
 class Importer < Thor
 
