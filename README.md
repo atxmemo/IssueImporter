@@ -52,3 +52,11 @@ In order to run the RSpec test suit, run the `rspec spec` command.
 
 The test suite covers the `extract` and `transform` method in each of the task manager class. 
 Any additional task manager that is added should add a file under the `spec` directory and define tests for the new file. 
+
+## Changes I would make had there been more time to work on this project (in order of importance)
+
+1. Error handling framework around the connectors in order to gracefully handle any exceptions being thrown
+2. Validating GitHub credentials, repository, user name and any other credentials used to connect to the task manager in question (for now there are required bt not validated)
+3. Handle pagination if the task manager in question has a result set large enough to warrant this functionality
+4. Asynchronously import the issues into GitHub using a background job
+5. Add a nice UI in front of this utility
