@@ -45,6 +45,7 @@ This project was designed with extensibility in mind. In order to add additional
 4. Create a issue class for this newly created type of issue that is being imported into GitHub
 5. Implement the `extract` method, loading tasks from the new task manager into an instance variable collection of issues of the type created in Step # 3
 6. Implement the `transform` method, iterating over the issues set in the `extract` method, and creating a collection of GitHub issues and setting them on the `@unsaved_github_issues` instance variable (to be picked up by the BaseTaskManager load method)
+7. Add the newly created task manager in the `importer.thor` file, give it the provided github connector, credentials for the task manager connector and kick off the import by calling `import` on the task manager
 
 ## Testing
 In order to run the RSpec test suit, run the `rspec spec` command.
