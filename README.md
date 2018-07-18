@@ -8,7 +8,8 @@ A Ruby utility that connects to a task manager and imports tasks as GitHub Issue
 IssueImporter is capable of importing Issues to any private or public GitHub Repository. Supported GitHub issue fields that are imported include: `title`, `body`, `state`
 
 ## Getting Started
-To begin cd into the top level (all commands in this README will be assumed to have been run from the top level IssueImporter directory) IssueImporter directory and run `bundle install` in order to  install all of the required dependencies.
+**Assumptions: Ruby 2.3.1 and the bundle gem installed**
+To begin, cd into the top level (all commands in this README will be assumed to have been run from the top level IssueImporter directory) IssueImporter directory and run `bundle install` in order to  install all of the required dependencies.
 From here, the `thor list` command can be used to see the list of available importer tasks. Currently only the `backlog` import task is available for usage.
 
 
