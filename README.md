@@ -2,7 +2,7 @@
 A Ruby utility that connects to a task manager and imports tasks as GitHub Issues using the GitHub API
 
 ## Supported Task Managers to import into GitHub Issues
-1. [Backlog](www.backlog.com/‎)
+1. [Backlog](https://www.backlog.com/‎)
 
 ## Supported functionality
 IssueImporter is capable of importing Issues to any private or public GitHub Repository. Supported GitHub issue fields that are imported include: `title`, `body`, `state`
