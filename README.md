@@ -39,16 +39,16 @@ Once all of these pieces of data have been collected and issues have been create
 ## Adding additional task managers to the code
 This project was designed with extensibility in mind. In order to add additional task managers to pull data from and import into GitHub there are only a couple steps that have to be taken.
 
-1. Create a task manager class under task_managers and have it extend BaseTaskManager
+1. Create a task manager class under task_managers and have it extend `BaseTaskManager`
 2. Create a connector that will make the HTTP calls to retrieve the issues from this new task manager
-3. In the initialize method, call the super method and set the GitHub connector in the BaseTaskManager
-4. Create a issue class for this newly created type of issue that is being imported into GitHub
+3. In the initialize method, call the super method and set the GitHub connector in the `BaseTaskManager`
+4. Create an issue class for this newly created type of issue that is being imported into GitHub
 5. Implement the `extract` method, loading tasks from the new task manager into an instance variable collection of issues of the type created in Step # 3
-6. Implement the `transform` method, iterating over the issues set in the `extract` method, and creating a collection of GitHub issues and setting them on the `@unsaved_github_issues` instance variable (to be picked up by the BaseTaskManager load method)
+6. Implement the `transform` method, iterating over the issues set in the `extract` method, and creating a collection of GitHub issues and setting them on the `@unsaved_github_issues` instance variable (to be picked up by the `BaseTaskManager` load method)
 7. Add the newly created task manager in the `importer.thor` file, give it the provided github connector, credentials for the task manager connector and kick off the import by calling `import` on the task manager
 
 ## Testing
-In order to run the RSpec test suit, run the `rspec spec` command.
+In order to run the RSpec test suite, run the `rspec spec` command.
 
 The test suite covers the `extract` and `transform` method in each of the task manager class. 
 Any additional task manager that is added should add a file under the `spec` directory and define tests for the new file. 
@@ -56,7 +56,7 @@ Any additional task manager that is added should add a file under the `spec` dir
 ## Changes I would make had there been more time to work on this project (in order of importance)
 
 1. Error handling framework around the connectors in order to gracefully handle any exceptions being thrown
-2. Validating GitHub credentials, repository, user name and any other credentials used to connect to the task manager in question (for now there are required bt not validated)
+2. Validating GitHub credentials, repository, user name and any other credentials used to connect to the task manager in question (currently required by thor but not validated)
 3. Handle pagination if the task manager in question has a result set large enough to warrant this functionality
 4. Asynchronously import the issues into GitHub using a background job
 5. Add a nice UI in front of this utility
