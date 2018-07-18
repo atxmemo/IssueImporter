@@ -2,7 +2,7 @@ require_relative '../issues/git_hub_issue'
 require_relative '../issues/backlog_issue'
 require_relative '../connectors/backlog_connector'
 
-class Backlog < BaseTaskManager
+class BacklogTaskManager < BaseTaskManager
 
   def initialize(options)
     super(options[:github_repo], options[:github_user_name], options[:github_auth_token])
