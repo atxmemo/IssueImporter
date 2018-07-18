@@ -27,8 +27,8 @@ Below are the required parameters in order to get the job to run successfully:
 ### From Backlog Account
 | Data                       | Description   |
 | -------------------------- |:-------------:|
-| [Backlog Project Key](https://support.backlog.com/hc/en-us/articles/115015421127-Project-Settings)    | GitHub user name |
-| [Backlog Api Key](https://support.backlog.com/hc/en-us/articles/115015420567-API-Settings)            | GitHub user name |
+| [Backlog Project Key](https://support.backlog.com/hc/en-us/articles/115015421127-Project-Settings)    | The unique identifier for a backlog project |
+| [Backlog Api Key](https://support.backlog.com/hc/en-us/articles/115015420567-API-Settings)            | The api key used to identify and grant access to user |
 
 Sample thor command usage:
 `thor importer:backlog --backlog-project-key atxmemo --backlog-api-key CJTsnun6jkj876Emn213xkjghtjlGllsrFC8ujtuBIvnRxjAbWSeE14cqX3GAzFL --github-repo HelloGitHubRepo --github-user-name HelloUserName --github-auth-token 60d0c4f0a321f42227d6811b3cb4fe93b946hn74`
