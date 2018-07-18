@@ -5,15 +5,14 @@ A Ruby utility that connects to a task manager and imports tasks as GitHub Issue
 1. [Backlog](www.backlog.com/‎)
 
 ## Supported functionality
-IssueImporter is capable of importing Issues to any private or public GitHub Repository. 
-Supported GitHub issue fields that are imported include: `title`, `body`, `state`
+IssueImporter is capable of importing Issues to any private or public GitHub Repository. Supported GitHub issue fields that are imported include: `title`, `body`, `state`
 
 ## Getting Started
 To begin cd into the top level (all commands in this README will be assumed to have been run from the top level IssueImporter directory) IssueImporter directory and run `bundle install` in order to  install all of the required dependencies.
-From here, the `thor list` command can be used to see the list of available importer tasks. Currently only the `backlog import task is available for usage.
+From here, the `thor list` command can be used to see the list of available importer tasks. Currently only the `backlog` import task is available for usage.
 
 
-###Backlog Importer
+### Backlog Importer
 In order to get a more detailed description of the backlog task, try running the `thor help importer:backlog`
 
 Below are the required parameters in order to get the job to run successfully:
@@ -24,8 +23,6 @@ Below are the required parameters in order to get the job to run successfully:
 | GitHub Username            | GitHub user name |
 | GitHub Repo                | The name of any private or public GitHub Repository to import backlog issues into |
 | [GitHub Authorization Token](https://blog.github.com/2013-05-16-personal-api-tokens/) | GitHub personal access token (NOTE: Must have repo scope enabled) |
-
->> NOTE: GitHub Authorization Token MUST have repo scope enabled in order for task to have the right permissions
 
 ### From Backlog Account
 | Data                       | Description   |
