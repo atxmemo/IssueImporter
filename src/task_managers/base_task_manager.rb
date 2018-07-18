@@ -2,8 +2,8 @@ require_relative '../connectors/git_hub_connector'
 
 class BaseTaskManager
 
-  def initialize(github_repo, github_user_name, github_auth_token)
-    @github_connector = GitHubConnector.new(github_repo, github_user_name, github_auth_token)
+  def initialize(github_connector)
+    @github_connector = github_connector
   end
 
   def import

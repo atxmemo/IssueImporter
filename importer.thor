@@ -10,7 +10,9 @@ class Importer < Thor
   method_option :github_user_name, required: true, type: :string, desc: 'GitHub user name'
   method_option :github_auth_token, required: true, type: :string, desc: 'GitHub personal access token (NOTE: Must have repo scope enabled): https://blog.github.com/2013-05-16-personal-api-tokens/'
   def backlog
-    BacklogTaskManager.new(options).import
+    github_connector = GitHubConnector.new(options[:github_repo], options[:github_user_name], options[:github_auth_token])
+    backlog_connector = BacklogConnector.new(options[:backlog_api_key], options[:backlog_project_key])
+    BacklogTaskManager.new(github_connector, backlog_connector).import
   end
 
 end

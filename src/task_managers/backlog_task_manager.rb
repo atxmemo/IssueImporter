@@ -4,15 +4,13 @@ require_relative '../connectors/backlog_connector'
 
 class BacklogTaskManager < BaseTaskManager
 
-  def initialize(options)
-    super(options[:github_repo], options[:github_user_name], options[:github_auth_token])
-    @backlog_api_key = options[:backlog_api_key]
-    @backlog_project_key = options[:backlog_project_key]
+  def initialize(github_connector, backlog_connector)
+    super(github_connector)
+    @backlog_connector = backlog_connector
   end
 
   def extract
-    raw_backlog_issues = BacklogConnector.new(@backlog_api_key,
-                                              @backlog_project_key).get_raw_issues
+    raw_backlog_issues = @backlog_connector.get_raw_issues
 
     @backlog_issues = Array.new
     raw_backlog_issues.each do |raw_backlog_issue|
