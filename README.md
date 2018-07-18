@@ -37,7 +37,7 @@ Sample thor command usage:
 Once all of these pieces of data have been collected and issues have been created in Backlog in order to import them into a GitHub repository, the task can be run. 
 
 ## Adding additional task managers to the code
-This project was designed with extensibility in mind. In order to add additional task managers to pull data from and import into GitHub there are a couple of things that have to be done.
+This project was designed with extensibility in mind. In order to add additional task managers to pull data from and import into GitHub there are only a couple steps that have to be taken.
 
 1. Create a task manager class under task_managers and have it extend BaseTaskManager
 2. Create a connector that will make the HTTP calls to retrieve the issues from this new task manager
