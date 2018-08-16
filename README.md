@@ -55,7 +55,7 @@ In order to run the RSpec test suite, run the `rspec spec` command.
 The test suite covers the `extract` and `transform` method in each of the task manager class. 
 Any additional task manager that is added should add a file under the `spec` directory and define tests for the new file. 
 
-## Changes I would make had there been more time to work on this project (in order of importance)
+## Features I want to add
 
 1. Error handling framework around the connectors in order to gracefully handle any exceptions being thrown
 2. Validating GitHub credentials, repository, user name and any other credentials used to connect to the task manager in question (currently required by thor but not validated)
